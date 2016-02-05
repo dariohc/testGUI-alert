@@ -5,6 +5,8 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
+# refer to page 118 of gui programming book
+# this line will create an app object from QApplication, Qt class
 app = QApplication(sys.argv)
 try:
     due = QTime.currentTime()
@@ -18,7 +20,7 @@ try:
     if len(sys.argv) > 2:
         message = " ".join(sys.argv[2:])
 except ValueError:
-    message = "Usage: alert.pyw HH:MM [optional message]"  # 24hr clock
+    message = "Usage: alert.pyw HH:MM [Wake up man]"  # 24hr clock
 while QTime.currentTime() < due:
     time.sleep(20)  # 20 seconds sleep
 label = QLabel("<font color=red size=72><b>" + message + "</b></font>")
